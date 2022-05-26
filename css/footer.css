@@ -1,0 +1,39 @@
+.footer {
+    background-color: #18171A;
+    padding: 60px 0 30px 0;
+    color: #fff;
+}
+
+.footer__logo {
+    widows: 160px;
+    margin-bottom: 40px;
+}
+.footer__columns {
+    display: flex;
+    gap: 120px;
+    margin-bottom: 18px;
+}
+
+.footer__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer__title {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.footer__link-social {
+    color: #B8FF20;;
+}
+
+.contacts__list_footer {
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.footer__link-box {
+    margin-bottom: 20px;
+
+}

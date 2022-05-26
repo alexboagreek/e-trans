@@ -55,5 +55,9 @@
 .product__btn:active {
     color: #ffffff;
     transition-duration: 0.2s;
-    background-color: #18171A;
+    background-color: #2a96d5e5;
+}
+.footer__copyright {
+    font-size: 12px;
+    line-height: 1.3;
 }

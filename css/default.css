@@ -8,6 +8,8 @@
 
 html {
     box-sizing: border-box;
+    position: relative;
+    overflow-x: hidden;
 }
 
 *, *::after, *::before{

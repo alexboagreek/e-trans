@@ -3,7 +3,7 @@ const init = () => {
     "map",
     {
       center: [51.53227981064729, 46.02023553988656],
-      zoom: 16,
+      zoom: 18,
       controls: ["smallMapDefaultSet"],
     },
     {}
@@ -13,9 +13,9 @@ const init = () => {
     {},
     {
       iconLayout: "default#image",
-      iconImageHref: "img/mark.svg",
-      iconImageSize: [70, 70],
-      iconImageOffset: [-35, -70],
+      iconImageHref: "assets/img/mark.svg",
+      iconImageSize: [50, 50],
+      iconImageOffset: [-30, -55],
     }
   );
   myMap.geoObjects.add(myPlacemark);

@@ -1,0 +1,24 @@
+@media (max-width: 1200px) {
+    .navigation__list {
+        gap: 20px;
+    }
+    .hero {
+        padding: 160px 0 70px;
+        margin-bottom: 40px;
+    }
+    .product {
+        padding: 40px 0;
+    }
+    .product__photo {
+        width: 380px;
+    }
+    .product__title {
+        font-size: 54px;
+    }
+    .product__description {
+        margin-bottom: 20px;
+    }
+    .contacts-section {
+        padding-top: 40px;
+    }
+}
