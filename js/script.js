@@ -32,23 +32,83 @@ const init = () => {
 };
 ymaps.ready(init);
 
-const createElement = (tag, attr) => {
+const createElem = (tag, attr) => {
   const elem = document.createElement(tag);
 
   return Object.assign(elem, { ...attr });
 };
 
 const createModal = (title, description) => {
-  const overlay = createElement('div', { className: 'modal' });
-  const modalElem = createElement('div', { className: 'modal__block'});
+  const overlayElem = createElem('div', {className: 'modal'});
+  const modalElem = createElem('div', {className: 'modal__block'});
+  const modalContainerElem = createElem('div', {className: 'modal__container'});
 
-  overlay.append(modalElem);
-  return overlay;
-}
+  const titleElem = createElem('h2', {
+    className: 'modal__title',
+    textContent: `Заказать ${title}`,
+  });
+
+  const descriptionElem = createElem('p', {
+    className: 'modal__description',
+    textContent: description,
+  });
+
+  const formElem = createElem('form', {
+    className: 'modal__form',
+    method: 'post',
+    action: 'http://jsonplaceholder.tyicode.com/posts',
+    id: 'order',
+  });
+
+  const nameLabelElem = createElem('label', { className: 'modal__label'});
+  const nameSpanElem = createElem('span', {
+    className: 'modal__text',
+    textContent: 'Имя',
+  });
+
+  const nameInputElem = createElem('input', {
+    className: 'modal__input',
+    placeholder: 'Введите ваше имя',
+    name: 'name',
+    required: true,
+  });
+
+
+  const phoneLabelElem = createElem('label', { className: 'modal__label'});
+  const phoneSpanElem = createElem('span', {
+    className: 'modal__text',
+    textContent: 'Телефон',
+  });
+
+  const phoneInputElem = createElem('input', {
+    className: 'modal__input',
+    placeholder: 'Введите ваш телефон',
+    name: 'phone',
+    required: true,
+  });
+
+
+  const hideInput = createElem('input', {
+    type: 'hidden',
+    name: 'product',
+    value: title,
+  });
+
+
+  nameLabelElem.append(nameSpanElem, nameInputElem);
+  phoneLabelElem.append(phoneSpanElem, phoneInputElem);
+  formElem.append(nameLabelElem, phoneLabelElem, hideInput);
+
+  modalContainerElem.append(titleElem, descriptionElem, formElem);
+  modalElem.append(modalContainerElem);
+  overlayElem.append(modalElem);
+  return overlayElem;
+};
 
 const productTitle = document.querySelectorAll('.product__title');
-const productDescription =document.querySelectorAll('.product__description');
-const productBtn = document.querySelectorAll('product__btn');
+const productDescription = document.querySelectorAll('.product__description');
+console.log(productDescription);
+const productBtn = document.querySelectorAll('.product__btn');
 
 for (let i = 0; i < productBtn.length; i++) {
   productBtn[i].addEventListener('click', () => {
@@ -56,6 +116,7 @@ for (let i = 0; i < productBtn.length; i++) {
     const description = productDescription[i].textContent;
 
     const modal = createModal(title, description);
+    document.body.append(modal);
   });
    
 }
